@@ -30,11 +30,14 @@ class ApplicationController < ActionController::Base
   # Sliding session expiry: extend on activity
   def touch_session_expiry
     return unless session[:last_seen_at]
-    if Time.current > session[:last_seen_at] + SESSION_TIMEOUT
+  
+    last_seen = Time.parse(session[:last_seen_at].to_s)
+  
+    if Time.current > last_seen + SESSION_TIMEOUT
       reset_session
     else
-      # update last seen to implement sliding expiration
       session[:last_seen_at] = Time.current
     end
   end
+  
 end

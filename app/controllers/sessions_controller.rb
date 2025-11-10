@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
         cookies.signed[:remember_user_id] = { value: user.id, expires: 14.days.from_now, httponly: true, secure: Rails.env.production? }
       end
 
-      redirect_to root_path, notice: "Logged in"
+      redirect_to home_path, notice: "Logged in"
     else
       flash.now[:alert] = "Invalid email or password"
       render :new, status: :unauthorized
