@@ -1,2 +1,26 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>Login</h1>
+
+<%= form_with url: login_path, local: true do |f| %>
+  <div>
+    <%= label_tag :email %><br/>
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+
+  <div>
+    <%= label_tag :password %><br/>
+    <%= password_field_tag :password %>
+  </div>
+
+  <div>
+    <%= check_box_tag :remember_me, "1" %>
+    <%= label_tag :remember_me, "Remember me" %>
+  </div>
+
+  <div>
+    <%= submit_tag "Log in" %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <p style="color:red;"><%= flash[:alert] %></p>
+<% end %>
