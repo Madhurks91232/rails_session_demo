@@ -1,0 +1,1 @@
+JWT_SECRET = Rails.application.secret_key_base

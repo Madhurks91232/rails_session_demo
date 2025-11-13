@@ -22,6 +22,8 @@ gem "jbuilder"
 
 gem 'activerecord-session_store'
 
+gem 'jwt'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

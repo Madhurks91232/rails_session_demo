@@ -12,4 +12,13 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: :logout
 
   get '/home', to: "home#index"
+
+  # config/routes.rb
+  namespace :api do
+    namespace :v1 do
+      post 'login', to: 'sessions#create'
+      get 'profile', to: 'users#profile'
+    end
+  end
+
 end
